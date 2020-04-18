@@ -5,13 +5,11 @@ using UnityEngine;
 public class MainCamera : MonoBehaviour
 {
     public Transform target;
-    Camera camera;
     public float maxLen = 10f;
     float smoothSpeed = 0.5f;
 
     void Start()
     {
-        camera = Camera.main;
     }
 
     void FixedUpdate()
@@ -26,7 +24,6 @@ public class MainCamera : MonoBehaviour
                 var new_pos = distance.normalized * (distance.magnitude - maxLen);
                 var deciredPos = transform.position + new_pos;
                 transform.position = Vector3.Lerp(transform.position, deciredPos, smoothSpeed);
-                Debug.Log(new_pos);
             }
         }
     }
